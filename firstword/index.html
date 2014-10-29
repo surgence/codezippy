@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Surgence - First Word</title>
+        <style type="text/css">
+            .firstword{
+                font-size:1.3em;
+                font-weight:bold;
+                font-variant:small-caps;
+            }
+        </style>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="text-to-change">This is some text</div>
+        <script src="surgence.firstword.js"></script>
+        <script>
+            $(function () {
+                $('.text-to-change').firstword();
+            });
+        </script>
+    </body>
+</html>
