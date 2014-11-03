@@ -1,0 +1,52 @@
+/***** Uncomment if twitter bootstrap less is not being used
+    @screen-xs-min:     0;
+    @screen-sm-min:     481px;
+    @screen-md-min:     536px;
+    @screen-md-max:     768px;
+        
+    @screen-xs-max:              (@screen-sm-min - 1);
+    @screen-sm-max:              (@screen-md-min - 1);    
+*/
+.responsive-block(@md:'',@sm:'',@xs:''){		
+	& when not (@md='') and not(@sm = '') and not(@xs = ''){
+		@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+			@md();
+		}
+		@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+			@sm();
+		}
+		@media (max-width: @screen-xs-max) {
+			@xs();
+		}
+	}
+	& when (@md = ''), (@sm = ''), (@xs = ''){
+		//MD SIZE var
+		& when not (@md = '') and (@sm = ''){
+			@media  (max-width: @screen-md-max) {
+				@md();
+			}
+		}
+		& when not (@md = '') and not (@sm = ''){
+			@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+				@md();
+			}
+		}
+		//SM SIZE
+		& when not (@sm = '') and (@xs = ''){
+			@media (max-width: @screen-sm-max) {
+				@sm();
+			}
+		}
+		& when not (@sm = '') and not (@xs = ''){
+			@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+				@sm();
+			}
+		}
+		//XS SIZE
+		& when not (@xs = ''){
+			@media (max-width: @screen-xs-max) {
+				@xs();
+			}   
+		}
+	}	
+}
